@@ -8,13 +8,15 @@ const weather = (latitude, longitude, callback) => {
         if (error) {
             //console.log('Logitude : ' + body.features[0].center[0] + ' Latitude : ' + body.features[0].center[1])
           callback('Unable to connect', undefined)
-        } else if ( body.current === undefined ){
+        } else if ( body.current === undefined || body.location === undefined){
             // console.log('Unable to connect')
             callback('Unable to locate', undefined)
         } else {
            callback(undefined, {
                temperature: body.current.temperature,
-               feelslike: body.current.feelslike
+               feelslike: body.current.feelslike,
+               humidity: body.current.humidity,
+               localtime: body.location.localtime
            } )
         }
     })
