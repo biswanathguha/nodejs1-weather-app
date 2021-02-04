@@ -59,7 +59,8 @@ app.get('/weather', (req, res) => {
             // return console.log('Error: ' + error)
             return res.send({ error })
         }
-        weather.weather(latitude, longitude, (error, {temperature, feelslike,humidity,localtime}={}) => {
+        weather.weather(latitude, longitude, (error, {temperature, feelslike,humidity,localtime,
+                      wind_speed, wind_degree, wind_dir }={}) => {
             if (error) {
                 // return console.log('Error: ' + error)
                 return res.send({ error })
@@ -72,7 +73,10 @@ app.get('/weather', (req, res) => {
                 temperature,
                 feelslike,
                 humidity,
-                localtime
+                localtime,
+                wind_speed,
+                wind_degree,
+                wind_dir
             })
             // console.log('Place name: ' + place_name)
             // console.log('Longitude: ' + longitude)

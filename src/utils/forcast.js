@@ -16,7 +16,10 @@ const weather = (latitude, longitude, callback) => {
                temperature: body.current.temperature,
                feelslike: body.current.feelslike,
                humidity: body.current.humidity,
-               localtime: body.location.localtime
+               localtime: body.location.localtime,
+               wind_speed: body.current.wind_speed,
+               wind_degree: body.current.wind_degree,
+               wind_dir: body.current.wind_dir
            } )
         }
     })
